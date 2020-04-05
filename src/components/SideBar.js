@@ -12,7 +12,6 @@ import {
 } from 'react-icons/fi';
 import {
   FaRoute,
-  FaSearch,
   FaBarcode,
 } from 'react-icons/fa';
 
