@@ -14,65 +14,71 @@ import {
   FaRoute,
   FaBarcode,
 } from 'react-icons/fa';
+import user from '../images/user.svg';
 
 export default function SideBar() {
   return (
     <SideBarMain>
-      <SideBarSection>
-        <SectionTitle>Customer</SectionTitle>
-
-        <SideBarLink to="/customers">
-          <span>
-            {' '}
-            <FiUser />
-          </span>
-          Customers
-        </SideBarLink>
-        <SideBarLink to="/orders">
-          <span><FiShoppingCart /></span>
-          Orders
-        </SideBarLink>
-        <SideBarLink to="/products">
-          <span><FaBarcode /></span>
-          Products
-        </SideBarLink>
-        <SideBarLink to="/packages">
-          <span><FiPackage /></span>
-          Packages
-        </SideBarLink>
-      </SideBarSection>
-      <SideBarSection>
-        <SectionTitle>Orders</SectionTitle>
-        <SideBarLink to="/stops">
-          <span><FiMap /></span>
-          Stops
-        </SideBarLink>
-        <SideBarLink to="/drivers">
-          <span><FiUsers /></span>
-          Drivers
-        </SideBarLink>
-        <SideBarLink to="/driverreports">
-          <span><FiList /></span>
-          Driver Reports
-        </SideBarLink>
-        <SideBarLink to="/trucks">
-          <span><FiTruck /></span>
-          Trucks
-        </SideBarLink>
-        <SideBarLink to="/deliveryroutes">
-          <span><FaRoute /></span>
-          Delivery Routes
-        </SideBarLink>
-      </SideBarSection>
-      <SideBarSection>
-        <SectionTitle>Users</SectionTitle>
-        <SideBarLink to="/users">
-          <span><FiUsers /></span>
-          Users
-
-        </SideBarLink>
-      </SideBarSection>
-
+      <CompanyLink to="/">
+        <p>Company Name</p>
+      </CompanyLink>
+      <SideBarCenter>
+        <SideBarSection>
+          <SectionTitle>Customer</SectionTitle>
+          <SideBarLink to="/customers">
+            <span>
+              <FiUser />
+            </span>
+            Customers
+          </SideBarLink>
+          <SideBarLink to="/orders">
+            <span><FiShoppingCart /></span>
+            Orders
+          </SideBarLink>
+          <SideBarLink to="/products">
+            <span><FaBarcode /></span>
+            Products
+          </SideBarLink>
+          <SideBarLink to="/packages">
+            <span><FiPackage /></span>
+            Packages
+          </SideBarLink>
+        </SideBarSection>
+        <SideBarSection>
+          <SectionTitle>Orders</SectionTitle>
+          <SideBarLink to="/stops">
+            <span><FiMap /></span>
+            Stops
+          </SideBarLink>
+          <SideBarLink to="/drivers">
+            <span><FiUsers /></span>
+            Drivers
+          </SideBarLink>
+          <SideBarLink to="/driverreports">
+            <span><FiList /></span>
+            Driver Reports
+          </SideBarLink>
+          <SideBarLink to="/trucks">
+            <span><FiTruck /></span>
+            Trucks
+          </SideBarLink>
+          <SideBarLink to="/deliveryroutes">
+            <span><FaRoute /></span>
+            Delivery Routes
+          </SideBarLink>
+        </SideBarSection>
+        <SideBarSection>
+          <SectionTitle>Users</SectionTitle>
+          <SideBarLink to="/users">
+            <span><FiUsers /></span>
+            Users
+          </SideBarLink>
+        </SideBarSection>
+      </SideBarCenter>
+      <User>
+        <UserImage src={user} alt="user icon" />
+        <UserLink to="/user"><p>User Name</p></UserLink>
+      </User>
     </SideBarMain>
   );
 }
@@ -80,9 +86,13 @@ export default function SideBar() {
 const SideBarLink = styled(Link)`
 text-decoration: none;
 color: black;
-padding: .25rem 0;
+padding: .8rem 0;
 span{
     padding-right: .5rem;
+}
+&:hover{
+  background-color: white;
+  border-radius: 10px;
 }
 `;
 
@@ -97,14 +107,47 @@ font-weight: bold;
 `;
 
 const SideBarMain = styled.div`
-height: 100%
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 100%;
 width: 10rem;
 position: fixed;
 top: 0;
 left: 0;
 bottom: 0;
 overflow-x: hidden;
-background-color: lightgray;
-padding: 3rem 1rem 0 1rem;
+padding: 0 1rem;
+background-color: #eee;
+`;
 
+const UserImage = styled.img`
+margin-top: 1.5rem;
+padding: 0 .75rem;
+height: 1.25rem;
+width: 1.25rem;
+`;
+
+const User = styled.div`
+display: flex;
+`;
+
+const SideBarCenter = styled.div``;
+
+const CompanyLink = styled(Link)`
+text-decoration: none;
+color: black;
+padding: .8rem 0;
+span{
+    padding-right: .5rem;
+}
+`;
+
+const UserLink = styled(Link)`
+text-decoration: none;
+color: black;
+padding: .8rem 0;
+span{
+    padding-right: .5rem;
+}
 `;
