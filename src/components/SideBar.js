@@ -87,6 +87,7 @@ const SideBarLink = styled(Link)`
 text-decoration: none;
 color: black;
 padding: .8rem 0;
+// font-weight: 600;
 span{
     padding-right: .5rem;
 }
@@ -99,6 +100,7 @@ span{
 const SideBarSection = styled.div`
 display: flex;
 flex-direction: column;
+padding: .5rem 0;
 `;
 
 const SectionTitle = styled.p`
@@ -110,12 +112,14 @@ const SideBarMain = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-height: 100%;
+height: 95%;
 width: 10rem;
 position: fixed;
-top: 0;
-left: 0;
-bottom: 0;
+border-radius: 10px;
+// top: 0;
+// left: 0;
+// bottom: 0;
+margin: 1.5rem 0 2rem 1rem;
 overflow-x: hidden;
 padding: 0 1rem;
 background-color: #eee;
