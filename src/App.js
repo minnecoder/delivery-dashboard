@@ -1,9 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './components/Login';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Login from "./components/Login";
 
-import './App.css';
-import Dashboard from './components/Dashboard';
+import "./App.css";
+import Dashboard from "./components/Dashboard";
+import Customers from "./components/Customers";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/customers" component={Customers} />
       </Switch>
     </BrowserRouter>
   );
