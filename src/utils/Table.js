@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTable, useFilters } from "react-table";
 import styled from "styled-components";
 
-export default function Table({ data, columns }) {
+export default function Table({ data, columns, title, filterField }) {
   const [filterInput, setFilterInput] = useState("");
   const {
     getTableProps,
@@ -20,12 +20,13 @@ export default function Table({ data, columns }) {
   );
   const handleFilterChange = (e) => {
     const value = e.target.value || undefined;
-    setFilter("customer_name", value);
+    setFilter(filterField, value);
     setFilterInput(value);
   };
   // Render the UI for your table
   return (
     <TableSect>
+      <h1>{title}</h1>
       <input
         value={filterInput}
         onChange={handleFilterChange}
@@ -61,7 +62,7 @@ export default function Table({ data, columns }) {
 }
 
 const Cell = styled.td`
-  font-size: 0.65rem;
+  font-size: 1rem;
 `;
 
 const TableSect = styled.div`
@@ -69,6 +70,12 @@ const TableSect = styled.div`
   flex-direction: column;
   margin-top: 0.5rem;
   margin-left: 13rem;
+  h1 {
+    text-align: center;
+  }
+  input {
+    padding: 1rem 0;
+  }
   table {
     border-spacing: 0;
     border: 1px solid #f6f6f6;

@@ -132,10 +132,7 @@ const SideBarMain = styled.div`
   height: 100%;
   width: 10rem;
   position: fixed;
-  border-radius: 10px;
   top: 0;
-  left: 0;
-  bottom: 0;
   margin-right: 3rem;
   overflow-x: hidden;
   padding: 0 1rem;
