@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import currentDate from "../utils/helpers";
 
 export default function AddForm() {
   const [values, setValues] = useState({});
-  const currentDate = () => {
-    const today = new Date();
-    return `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
-  };
+
   async function addCustomer() {
-    await fetch(`https://express-delivery-api.herokuapp.com/api/v1/customers`, {
+    await fetch(`https://express-delivery-api.herokuapp.com/api/v1/products`, {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        customer_name: values.custName,
-        address: values.address,
-        city: values.city,
-        state: values.state,
-        zip: values.zip,
-        phone: values.phone,
-        email: values.email,
+        item: values.item,
+        description: values.description,
+        cost: values.cost,
+        price: values.price,
+        on_hand: values.onHand,
         createdAt: currentDate(),
         updatedAt: currentDate(),
       }),
@@ -43,53 +39,39 @@ export default function AddForm() {
     <div>
       <CustForm onSubmit={handleSubmit}>
         <input
-          name="custName"
+          name="item"
           type="text"
-          value={values.custName}
+          value={values.item}
           onChange={handleChange}
-          placeholder="Customer Name"
+          placeholder="Item"
         />
         <input
-          name="address"
+          name="description"
           type="text"
-          value={values.address}
+          value={values.description}
           onChange={handleChange}
-          placeholder="Address"
+          placeholder="Description"
         />
         <input
-          name="city"
+          name="cost"
           type="text"
-          value={values.city}
+          value={values.cost}
           onChange={handleChange}
-          placeholder="City"
+          placeholder="Cost"
         />
         <input
-          name="state"
+          name="price"
           type="text"
-          value={values.state}
+          value={values.price}
           onChange={handleChange}
-          placeholder="State"
+          placeholder="Price"
         />
         <input
-          name="zip"
+          name="onHand"
           type="text"
-          value={values.zip}
+          value={values.onHand}
           onChange={handleChange}
-          placeholder="Zip"
-        />
-        <input
-          name="phone"
-          type="text"
-          value={values.phone}
-          onChange={handleChange}
-          placeholder="Phone"
-        />
-        <input
-          name="email"
-          type="text"
-          value={values.email}
-          onChange={handleChange}
-          placeholder="Email"
+          placeholder="On Hand"
         />
         <input type="submit" value="Add" />
       </CustForm>

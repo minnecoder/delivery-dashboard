@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SideBar from "./SideBar";
 import Table from "../utils/Table";
-import AddForm from "./AddForm";
+import AddCustomerForm from "./AddCustomerForm";
 
 export default function Customers() {
   const [dbdata, setDBdata] = useState([]);
@@ -35,7 +35,7 @@ export default function Customers() {
         title="Customers"
         filterField="customer_name"
       />
-      <AddForm />
+      <AddCustomerForm />
     </Main>
   );
 }
