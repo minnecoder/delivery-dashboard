@@ -10,6 +10,10 @@ import Products from "./components/Products";
 import Packages from "./components/Packages";
 import Stops from "./components/Stops";
 import Drivers from "./components/Drivers";
+import DriverReports from "./components/DriverReports";
+import Trucks from "./components/Trucks";
+import DeliveryRoutes from "./components/DeliveryRoutes";
+import Users from "./components/Users";
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
         <Route exact path="/packages" component={Packages} />
         <Route exact path="/stops" component={Stops} />
         <Route exact path="/drivers" component={Drivers} />
+        <Route exact path="/driverreports" component={DriverReports} />
+        <Route exact path="/trucks" component={Trucks} />
+        <Route exact path="/deliveryroutes" component={DeliveryRoutes} />
+        <Route exact path="/users" component={Users} />
       </Switch>
     </BrowserRouter>
   );
